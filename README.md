@@ -8,10 +8,17 @@ The optimizer runs entirely in your browser. Item details are not sent to a serv
 
 Open `index.html` in a browser. To try the values from the Java example, choose **Load example**.
 
-## Publish on GitHub Pages
+## Publish on Netlify
 
-1. Create a GitHub repository and push these project files to its `main` branch.
-2. In the repository, open **Settings → Pages** and select **GitHub Actions** as the build and deployment source.
-3. The included workflow deploys the site on every push to `main`. Once it completes, open the Pages URL shown in the workflow run or under **Settings → Pages**.
+### Deploy from a Git repository
 
-GitHub Pages is suitable for this static, browser-only app. A public repository can be published at no cost; hosting the site does not upload or store the values entered into the app.
+1. Push the project to a GitHub or GitLab repository.
+2. In Netlify, choose **Add new site → Import an existing project** and connect that repository.
+3. Leave the build command and publish directory blank; the site files (`index.html`, `styles.css`, and `app.js`) are at the project root.
+4. Choose **Deploy site**. Netlify will provide a public `netlify.app` address and redeploy when you push changes.
+
+### Deploy without Git
+
+In the Netlify dashboard, choose **Add new site → Deploy manually** and drag the project folder into the drop area. For updates, upload the folder again.
+
+The optimizer runs in the visitor's browser. Entered item details are not uploaded or stored by the site.
