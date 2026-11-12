@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f5f1">
+    <meta name="description" content="Choose the most valuable combination of items that fits in your bag.">
+    <title>Knapsack — Find your best fit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Packwise home">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span>packwise</span>
+        </a>
+        <span class="topbar-note"><span class="status-dot"></span> Your data stays on this device</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-line"></span> THE 0/1 KNAPSACK PROBLEM</p>
+        <h1 id="page-title">Make every<br><span>gram count.</span></h1>
+        <p class="intro-copy">A little strategy goes a long way. Add your items, set your bag’s limit, and find the most valuable combination that fits.</p>
+      </section>
+
+      <section class="workspace" aria-label="Knapsack optimizer">
+        <div class="items-panel">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">YOUR INVENTORY</p>
+              <h2>Items <span id="item-count" class="count-badge">0</span></h2>
+            </div>
+            <button type="button" class="text-button" id="load-example">Load example</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">ITEM NAME</th>
+                  <th scope="col">VALUE</th>
+                  <th scope="col">WEIGHT</th>
+                  <th scope="col"><span class="sr-only">Remove item</span></th>
+                </tr>
+              </thead>
+              <tbody id="items-body"></tbody>
+            </table>
+            <p class="empty-state" id="empty-state">Your bag is looking a little light.<br>Add an item to get started.</p>
+          </div>
+
+          <button type="button" class="add-button" id="add-item"><span aria-hidden="true">+</span> Add an item</button>
+          <p class="input-error" id="input-error" role="alert" hidden></p>
+        </div>
+
+        <aside class="result-panel" aria-label="Bag capacity and result">
+          <div class="capacity-block">
+            <label class="section-kicker" for="capacity">YOUR BAG’S CAPACITY</label>
+            <div class="capacity-input-wrap">
+              <input id="capacity" type="number" min="0.01" step="any" value="15" inputmode="decimal">
+              <span>kg</span>
+            </div>
+            <p class="hint">Maximum total weight</p>
+          </div>
+
+          <div class="bag-illustration" aria-hidden="true">
+            <div class="bag-handle"></div>
+            <div class="bag-shape">
+              <div class="bag-pocket"><span></span></div>
+              <div class="bag-strap"></div>
+              <div class="bag-tag">PACK<br>WISE</div>
+            </div>
+            <div class="bag-shadow"></div>
+          </div>
+
+          <div class="result-summary" aria-live="polite">
+            <p class="section-kicker">BEST COMBINATION</p>
+            <div class="result-metrics">
+              <div>
+                <span class="metric-label">TOTAL VALUE</span>
+                <strong id="total-value">—</strong>
+              </div>
+              <div>
+                <span class="metric-label">TOTAL WEIGHT</span>
+                <strong><span id="total-weight">—</span><small> kg</small></strong>
+              </div>
+            </div>
+            <div class="capacity-track" role="progressbar" aria-label="Capacity used" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span id="capacity-fill"></span>
+            </div>
+            <p class="capacity-caption" id="capacity-caption">Add items to see your best fit.</p>
+            <div class="selected-items">
+              <span class="metric-label">PACK THESE ITEMS</span>
+              <ul id="selected-list">
+                <li class="selection-placeholder">Your picks will show up here.</li>
+              </ul>
+            </div>
+          </div>
+
+          <button type="button" class="solve-button" id="solve-button">
+            Find my best fit <span aria-hidden="true">↗</span>
+          </button>
+        </aside>
+      </section>
+
+      <footer>
+        <span>PACK LIGHT. CHOOSE WELL.</span>
+        <span>0/1 KNAPSACK OPTIMIZER</span>
+      </footer>
+    </main>
+    <template id="item-row-template">
+      <tr class="item-row">
+        <td><input class="item-name" type="text" maxlength="40" aria-label="Item name" placeholder="e.g. Water bottle"></td>
+        <td><label class="number-cell"><span class="sr-only">Value</span><input class="item-value" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label></td>
+        <td><label class="number-cell"><span class="sr-only">Weight in kilograms</span><input class="item-weight" type="number" min="0.01" step="any" inputmode="decimal" placeholder="0"><span>kg</span></label></td>
+        <td><button class="remove-button" type="button" aria-label="Remove item" title="Remove item">×</button></td>
+      </tr>
+    </template>
+  </body>
+</html>
