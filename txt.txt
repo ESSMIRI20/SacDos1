@@ -1,0 +1,13 @@
+javac -cp ".:lib/cplex.jar" -d bin src/Sac_Dos.java
+
+java -Djava.library.path="/home/ossama/CPLEX_Studio2210/cplex/bin/x86-64_linux" -cp "bin:lib/cplex.jar" Sac_Dos
+
+
+run the server :
+
+cd /home/ossama/Downloads/SacDos1
+python3 -m http.server 8000
+
+cd /home/ossama/Downloads/SacDos1
+javac -cp "lib/sqlite-jdbc-3.54.1.0.jar" -d bin src/Sac_Dos.java
+java -cp "bin:lib/sqlite-jdbc-3.54.1.0.jar" Sac_Dos 8081

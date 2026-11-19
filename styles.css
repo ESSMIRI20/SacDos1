@@ -166,6 +166,18 @@ td input::placeholder { color: #b6b7b0; }
 .solve-button:hover { background: var(--green-dark); transform: translateY(-1px); }
 .solve-button span { font-size: 16px; font-weight: 400; }
 
+.history-section { margin-top: 30px; padding: 24px 27px; border: 1px solid var(--line); border-radius: 15px; background: var(--white); }
+.history-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.history-status { margin: 0; color: #92948c; font-size: 12px; }
+.history-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.history-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; align-items: center; padding: 14px 15px; border: 1px solid #eeede7; border-radius: 10px; background: #fffefa; }
+.history-date { margin: 0 0 5px; color: var(--muted); font-size: 11px; }
+.history-metrics { display: flex; flex-wrap: wrap; gap: 7px 17px; color: #55584f; font-size: 12px; }
+.history-metrics strong { color: var(--green-dark); font-weight: 700; }
+.history-picks { grid-column: 1; margin: 3px 0 0; color: #85877f; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+.history-load { grid-column: 2; grid-row: 1 / span 3; padding: 8px 11px; border: 1px solid #d5dfcb; border-radius: 7px; color: var(--green); background: #f7f9f2; font-size: 11px; font-weight: 700; cursor: pointer; }
+.history-load:hover { color: white; background: var(--green); }
+
 footer { display: flex; justify-content: space-between; padding: 28px 0 32px; color: #a1a198; font-size: 8px; letter-spacing: 1.2px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 
@@ -181,6 +193,7 @@ footer { display: flex; justify-content: space-between; padding: 28px 0 32px; co
   .bag-illustration { height: 137px; }
   .result-summary { grid-column: 1 / -1; }
   .solve-button { grid-column: 1 / -1; }
+  .history-section { padding: 20px 16px; }
 }
 
 @media (max-width: 420px) {
@@ -192,5 +205,8 @@ footer { display: flex; justify-content: space-between; padding: 28px 0 32px; co
   td { padding-inline: 3px; }
   td input { padding-inline: 5px; font-size: 12px; }
   .result-panel { padding: 20px 17px 17px; }
+  .history-card { grid-template-columns: 1fr; }
+  .history-load { grid-column: 1; grid-row: auto; justify-self: start; }
+  .history-picks { grid-column: 1; }
   footer { font-size: 7px; }
 }
